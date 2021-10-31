@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  
+  rs_database:
+    image: "mariadb:10.6.4"
+    container_name: "rs-mariadb"
+    restart: unless-stopped
+    volumes:
+      - ./container_data/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      # - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    networks:
+      - realmsense
+
+  rs_phpmyadmin:
+    image: "phpmyadmin/phpmyadmin:latest"
+    container_name: "rs-phpmyadmin"
+    restart: unless-stopped
+    environment:
+      - PMA_HOST=rs_database
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.rs-phpmyadmin.rule=Host(`${PMA_URL}`)"
+      - "traefik.http.routers.rs-phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.rs-phpmyadmin.tls.certresolver=dnsresolver"
+    networks:
+      - traefik
+      - realmsense
+
+networks:
+  traefik:
+    external: true
+  realmsense:
+    external: true

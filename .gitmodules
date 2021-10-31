@@ -1,0 +1,6 @@
+[submodule "api/container_data/api"]
+	path = api/container_data/api
+	url = https://git.extacy.cc/realmsense/api
+[submodule "website/container_data/website"]
+	path = website/container_data/website
+	url = https://git.extacy.cc/realmsense/website

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  
+  website:
+    build:
+      context: ./container_data/website
+      dockerfile: Dockerfile
+    container_name: "rs-website"
+    restart: unless-stopped
+    volumes:
+      - "./container_data/website/shared/src/constants/environment/environment.prod.ts:/usr/src/app/shared/src/constants/environment/environment.ts"
+      - "./container_data/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.rs-website.rule=Host(`${WEBSITE_URL}`)"
+      - "traefik.http.routers.rs-website.entrypoints=websecure"
+      - "traefik.http.routers.rs-website.tls.certresolver=dnsresolver"
+      # - "traefik.http.services.rs-website.loadbalancer.server.port=4200"
+    networks:
+      - traefik
+      - realmsense
+
+networks:
+  traefik:
+    external: true
+  realmsense:
+    external: true
