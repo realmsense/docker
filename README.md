@@ -9,28 +9,32 @@ contains docker configs for deploying realmsense stack on a server
 
 1. Create `.env file`:
     ```
-    API_URL=
-    WEBSITE_URL=
-    PMA_URL=
+    PRODUCTION=boolean
+
+    # URL
+    HTTP=string
+    API_URL=string
+    WEBSITE_URL=string
+    PMA_URL=string
 
     # Discord
-    DISCORD_CLIENTID=
-    DISCORD_CLIENTSECRET=
-    DISCORD_REDIRECTURI=
+    DISCORD_CLIENTID=string
+    DISCORD_CLIENTSECRET=string
+    DISCORD_REDIRECTURI=string
 
     # Database
-    DB_DEFAULT=
-    DB_TRACKER=
-    DB_CUSTOMERS=
+    DB_DEFAULT=string
+    DB_TRACKER=string
+    DB_CUSTOMERS=string
 
-    DB_HOST=
-    DB_PORT=
-    DB_USERNAME=
-    DB_PASSWORD=
-    DB_ROOT_PASSWORD=
+    DB_HOST=string
+    DB_PORT=string
+    DB_USERNAME=string
+    DB_PASSWORD=string
+    DB_ROOT_PASSWORD=string
 
     DB_SYNCHRONIZE=boolean
-    DB_LOGGING=false
+    DB_LOGGING=boolean
     ```
 
 1. Start MariaDB first, create user and databases (from `.env`)
