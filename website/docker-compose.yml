@@ -3,6 +3,7 @@ version: "3.9"
 services:
   
   rs_website:
+    image: "realmsense/website"
     build:
       context: ./container_data/website
       dockerfile: Dockerfile

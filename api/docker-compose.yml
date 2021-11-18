@@ -3,6 +3,7 @@ version: "3.9"
 services:
   
   rs_api:
+    image: "realmsense/api"
     build:
       context: ./container_data/api
       dockerfile: Dockerfile
