@@ -25,3 +25,7 @@ contains docker configs for deploying realmsense stack on a server
 1. Start API
 
 1. Start Website
+
+1. Start Extractor
+
+1. Start Tracker

@@ -1,4 +1,4 @@
-arr=("api" "website")
+arr=("api" "website" "extractor")
 
 # Take down containers and clear images
 for i in "${arr[@]}"; do

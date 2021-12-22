@@ -4,3 +4,6 @@
 [submodule "website/container_data/website"]
 	path = website/container_data/website
 	url = https://git.extacy.cc/realmsense/website
+[submodule "extractor/container_data/rotmg-extractor"]
+	path = extractor/container_data/rotmg-extractor
+	url = https://git.extacy.cc/realmsense/rotmg-extractor
