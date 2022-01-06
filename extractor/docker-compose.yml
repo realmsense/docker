@@ -11,6 +11,18 @@ services:
     shm_size: "2gb"
     volumes:
       - ./container_data/rotmg-extractor:/usr/src/app
+      - ./container_data/ida_shared:/usr/src/ida
+
+  rs_extractor_ida:
+    image: "realmsense/ida-wine"
+    build:
+      context: ./container_data/ida-docker-wine/ida-docker
+      dockerfile: Dockerfile
+    container_name: "rs-extractor-ida"
+    restart: unless-stopped
+    volumes:
+      - ./container_data/ida_shared:/root/ida
+      - ./container_data/ida-docker-wine/ida-docker/server:/root/server
 
   rs_extractor_nginx:
     image: "nginx:1.21.1"

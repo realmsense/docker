@@ -7,3 +7,6 @@
 [submodule "extractor/container_data/rotmg-extractor"]
 	path = extractor/container_data/rotmg-extractor
 	url = https://git.extacy.cc/realmsense/rotmg-extractor
+[submodule "extractor/container_data/ida-docker-wine"]
+	path = extractor/container_data/ida-docker-wine
+	url = https://git.extacy.cc/realmsense/ida-docker-wine

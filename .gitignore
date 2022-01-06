@@ -2,3 +2,4 @@
 api/container_data/persist
 mariadb/container_data
 traefik/container_data
+extractor/container_data/ida_shared
